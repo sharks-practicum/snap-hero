@@ -2,6 +2,7 @@
   "name": "client-server-template-with-vite",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow yarn",
     "bootstrap": "yarn && node init.js && lerna clean && yarn && lerna bootstrap",
     "build": "lerna run build",
     "dev:client": "lerna run dev  --scope=client",
@@ -17,10 +18,12 @@
     "packages/*"
   ],
   "engines": {
-    "node": ">=15"
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.20.0",
+    "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.1.1",
-    "lerna": "^5.4.3"
+    "@evilmartians/lefthook": "1.1.1",
+    "lerna": "5.4.3"
   }
 }
