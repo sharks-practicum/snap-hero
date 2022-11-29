@@ -11,7 +11,9 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "format": "lerna run format",
-    "preview": "lerna run preview"
+    "preview": "concurrently \"yarn preview:client\" \"yarn preview:server\"",
+    "preview:client": "lerna run preview --scope=client",
+    "preview:server": "lerna run preview --scope=server"
   },
   "license": "MIT",
   "workspaces": [
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@evilmartians/lefthook": "1.1.1",
+    "concurrently": "7.6.0",
     "lerna": "5.4.3"
   }
 }
