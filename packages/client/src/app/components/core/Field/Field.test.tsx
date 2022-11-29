@@ -1,7 +1,9 @@
 import Field from './Field'
-import {render, screen } from '@testing-library/react'
+import {render } from '@testing-library/react'
 
 test('Example test', async () => {
-  render(<Field label="input" type="text"/>)
-  expect(screen.getByRole('input')).toBeDefined()
+  render(<Field label="input" type="password"/>)
+
+  expect(document.querySelector('[type=text]')).toBeNull()
+  expect(document.querySelector('[type=password]')).not.toBeNull()
 })

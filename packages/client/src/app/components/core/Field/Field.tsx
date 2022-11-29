@@ -5,10 +5,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string
 }
 
-const Field: React.FC<PropsWithChildren<Props>> = (props) => {
-
-  const {label} = props
-
+const Field: React.FC<PropsWithChildren<Props>> = ({label, ...props}) => {
   return (
     <label className={styles.label}>
       <span className={styles.text}>{label}</span>
