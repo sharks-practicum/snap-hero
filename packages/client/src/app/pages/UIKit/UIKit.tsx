@@ -1,4 +1,4 @@
-import styles from './UIKit.module.css'
+import styles from './UIKit.module.scss'
 import Button from '../../components/core/Button/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import TextField from '../../components/core/TextField/TextField'

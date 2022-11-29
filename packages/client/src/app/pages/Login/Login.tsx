@@ -1,5 +1,5 @@
 import React, { FormEventHandler, MouseEventHandler } from 'react'
-import styles from './Login.module.css'
+import styles from './Login.module.scss'
 import Button from '../../components/core/Button/Button'
 import TextField from '../../components/core/TextField/TextField'
 import PasswordField from '../../components/core/PasswordField/PasswordField'

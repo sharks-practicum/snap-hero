@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import styles from './App.module.css'
+import styles from './App.module.scss'
 import { Route, Routes } from 'react-router-dom'
 import Login from './pages/Login/Login'
 import UIKit from './pages/UIKit/UIKit'

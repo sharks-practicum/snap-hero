@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, PropsWithChildren } from 'react'
-import styles from './Field.module.css'
+import styles from './Field.module.scss'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string
