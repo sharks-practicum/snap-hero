@@ -1,0 +1,28 @@
+:root {
+  /* --{short property name}-{meaning/value} */
+  --ff-primary: "Inter", "Arial", sans-serif;
+  --ff-secondary: "SourceSansPro", "Arial", sans-serif;
+
+  --fs-base: 12px;
+  --fs-text: 1rem;
+  --fs-title: 1.7rem;
+  --lh-base: 1.2em;
+  --lh-large: 1.5em;
+
+  /* --{object}-{short property name}-{meaning/value}-on-{condition} */
+  /*light theme*/
+  /* common colors */
+  --color-action: #3369f3;
+  --color-danger: #ff0000;
+
+  --text-color-major: #1e1e1e;
+  --text-color-minor: #999;
+  --input-bg-light: #efefef;
+  --input-bg-light-on-focus: #efefef;
+  --border-color-light: #efefef;
+  --border-color-light-on-focus: #efefef;
+
+  --input-border-color: var(--color-action);
+  --label-color: var(--color-danger);
+
+}

@@ -1,0 +1,48 @@
+:root {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: var(--text-c-major);
+}
+
+body {
+  font-family: var(--ff-primary);
+  overflow-x: hidden;
+}
+
+/*Delete browser styling for search fields*/
+[type="search"] {
+  appearance: textfield;
+}
+
+/*Add common styled scrollbar*/
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-track {
+  width: 8px;
+  margin-block: 2em;
+  background-clip: padding-box;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 0 10px RGB(0 0 0 / 30%);
+}
+
+/* hide component from user but leave it for crawlers and screenreaders */
+[class="visually-hidden"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.center {
+  margin: 0 auto;
+  max-width: 1440px
+}
