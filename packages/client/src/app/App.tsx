@@ -1,10 +1,8 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styles from './App.module.scss'
-import { Route, Routes } from 'react-router-dom'
-import Login from './pages/Login/Login'
-import UIKit from './pages/UIKit/UIKit'
+import Router from "./Router";
 
-function App() {
+const App:React.FC = () => {
   useEffect(() => {
     const fetchServerData = async () => {
       const url = `http://localhost:${__SERVER_PORT__}`
@@ -17,14 +15,7 @@ function App() {
   }, [])
   return <div className={styles.app}>
     Вот тут будет жить ваше приложение :)
-    <Routes>
-      <Route path="/" element={<UIKit />}>
-        {/*Nested routes example */}
-        {/*<Route path="ticket" element={<TicketBoard />} />*/}
-        {/*<Route path="ticket/:ticketId" element={<Ticket />} />*/}
-      </Route>
-      <Route path='/login' element={<Login />}/>
-    </Routes>
+    <Router/>
   </div>
 }
 

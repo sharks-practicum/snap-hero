@@ -12,17 +12,17 @@
   /* --{object}-{short property name}-{meaning/value}-on-{condition} */
   /*light theme*/
   /* common colors */
-  --c-action: #3369f3;
-  --c-danger: #ff0000;
+  --color-action: #3369f3;
+  --color-danger: #ff0000;
 
-  --text-c-major: #1e1e1e;
-  --text-c-minor: #999;
+  --text-color-major: #1e1e1e;
+  --text-color-minor: #999;
   --input-bg-light: #efefef;
   --input-bg-light-on-focus: #efefef;
-  --border-c-light: #efefef;
-  --border-c-light-on-focus: #efefef;
+  --border-color-light: #efefef;
+  --border-color-light-on-focus: #efefef;
 
-  --input-border-c: var(--c-action);
-  --label-c: var(--c-danger);
+  --input-border-color: var(--color-action);
+  --label-color: var(--color-danger);
 
 }

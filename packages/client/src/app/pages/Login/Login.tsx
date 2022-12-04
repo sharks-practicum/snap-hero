@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
 
-  const submitHandler:FormEventHandler<HTMLFormElement> = (e): void => {
-    e.preventDefault()
+  const submitHandler:FormEventHandler<HTMLFormElement> = (event): void => {
+    event.preventDefault()
     console.log("Форма отправлена")
   }
 
-  const submitBntClickHandler:MouseEventHandler<HTMLButtonElement>= (): void => {
+  const submitBtnClickHandler:MouseEventHandler<HTMLButtonElement>= (): void => {
     console.log("Кнопка оправки нажата")
   }
 
@@ -22,7 +22,7 @@ const Login = () => {
       <form action='' onSubmit={submitHandler}>
         <TextField label="Логин"/>
         <PasswordField label="Пароль"/>
-        <Button onClick={submitBntClickHandler}>Войти</Button>
+        <Button onClick={submitBtnClickHandler}>Войти</Button>
         <Link to="/">Вернуться на UIKit</Link>
       </form>
     </div>
