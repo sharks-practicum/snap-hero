@@ -1,0 +1,16 @@
+.input {
+    background-color: transparent;
+    &:focus {
+        outline: none;
+    }
+    &__error{
+        position: absolute;
+        font-size: var(--fs-little);
+        color:var(--color-danger);
+        bottom: 2px;
+        left:5px;
+    }
+    &__wrapper{
+        position:relative;
+    }
+}
