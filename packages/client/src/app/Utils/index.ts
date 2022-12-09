@@ -1,1 +1,1 @@
-export { default as inputValidator } from './inputValidator';
+export { default as inputValidator } from './inputValidator/inputValidator';

@@ -28,7 +28,6 @@ const Signup: FC = () => {
     });
 
     const handleChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>) => {
-        console.log({ [name]: value })
         setRegistrationData({
             ...registrationData,
             values: {
