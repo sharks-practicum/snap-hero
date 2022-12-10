@@ -1,16 +1,33 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import React, { FC, MouseEventHandler, PropsWithChildren} from 'react'
 import styles from './Button.module.scss'
+import classnames from 'classnames'
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary';
+export enum ButtonVariant {
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
+  back = 'back',
 }
 
-const Button: React.FC<PropsWithChildren<Props>> = (props) => {
+interface Props {
+  variant?: ButtonVariant;
+  className?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+}
+
+const Button: FC<PropsWithChildren<Props>> = ({variant, className, onClick, children, ...props}) => {
+
+  const classButton = classnames(styles.button, className, {
+    [styles.primary]: variant === ButtonVariant.primary,
+    [styles.secondary]: variant === ButtonVariant.secondary,
+    [styles.tertiary]: variant === ButtonVariant.tertiary,
+    [styles.back]: variant === ButtonVariant.back,
+  })
 
   return (
-    <button className={styles.button} {...props}>
-      {props.children}
-    </button>
+      <button className={classButton} onClick={onClick} {...props}>
+        {children}
+      </button>
   )
 }
 
