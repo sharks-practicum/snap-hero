@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import styles from './App.module.scss'
 import Router from "./Router";
+import Layout from "./pages/Layout/Layout";
 
 const App:React.FC = () => {
   useEffect(() => {
@@ -13,10 +14,13 @@ const App:React.FC = () => {
 
     fetchServerData()
   }, [])
-  return <div className={styles.app}>
-    Вот тут будет жить ваше приложение :)
-    <Router/>
-  </div>
+  return (
+      <Layout>
+        <div className={styles.app}>
+          <Router/>
+        </div>
+      </Layout>
+  )
 }
 
 export default App
