@@ -15,8 +15,20 @@ const UIKit = () => {
     <div className="center">
       <h1>Страничка UIKit</h1>
       Меню для переключения между страницами
+        <br/>
       <nav>
         <Link to="/login">Login(переход по ссылке)</Link>
+          <br/>
+        <Link to="/welcome">Welcome page</Link>
+          <br/>
+        <Link to="/gameover">Game Over</Link>
+          <br/>
+        <Link to="/start">Start</Link>
+          <br/>
+        <Link to="/profile">Profile</Link>
+          <br/>
+        <Link to="/liderboard">LiderBoard</Link>
+          <br/>
         <Button onClick={navigateToLoginHandler}>Login(переход по кнопке)</Button>
       </nav>
 
