@@ -1,0 +1,137 @@
+@import "src/assets/styles/variables";
+
+.profile_wrap {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile {
+  width: 100%;
+  min-height: 98vh;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  display: flex;
+}
+
+.profile-form-wrap {
+  width: 60vw;
+  background: $color-bg-white;
+  border-radius: 15px;
+
+      &__header {
+          padding: 20px;
+          border-radius: 15px;
+          background-image: linear-gradient(180deg, $color-bg-orange  50%, $color-bg-white 50%);
+          display: flex;
+          flex-direction: row;
+
+          &_left {
+            flex: 1;
+          }
+
+          &_right {
+            flex: 1;
+          }
+
+  }
+}
+
+.profile-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+      &__ul-li-input-wrap {
+        width: 100%;
+        padding-left: 150px;
+      }
+
+      &__input-wrap {
+        width: 100%;
+        padding-bottom: 15px;
+        display: flex;
+        height: 100%;
+        flex: 0 0 100%;
+        flex-flow: wrap column;
+        padding-inline-end: 150px;
+      }
+
+      &__input-label-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+      }
+
+      &__input-label {
+        font-size: 16px;
+        color: #A5A5A5;
+        line-height: 1.5;
+        padding-left: 7px;
+        white-space: nowrap;
+      }
+
+      &__input {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.2;
+        width: 100%;
+        background: transparent;
+        text-align: right;
+        border: none;
+        padding: 0 7px 0 43px;
+        height: 30px;
+
+            &:focus {
+              width: 100%;
+              outline: none;
+            }
+
+        }
+
+      &__input-border {
+        width: 100%;
+        border-bottom: 1px solid $input-border-color;
+      }
+
+      &__button {
+        font-size: 16px;
+        color: $text-color-white;
+        line-height: 1.2;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        height: 30px;
+        position: relative;
+        z-index: 1;
+        border-radius: 25px;
+        overflow: hidden;
+        background: $color-bg-orange;
+        border: none;
+        box-shadow: 0 0 8px $text-color-major;
+        cursor: pointer;
+        margin: 40px auto;
+      }
+
+      &__back-button {
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+        font-size: 18px;
+        background-image: url('../../../assets/images/back_grey.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding: 5px 7px 5px 35px;
+        margin-top: 20px;
+      }
+}
