@@ -1,1 +1,5 @@
-.app {}
+@import "src/assets/styles/colors";
+
+.app {
+  background: $primary;
+}

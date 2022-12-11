@@ -1,0 +1,32 @@
+@import "src/assets/styles/colors";
+@import "src/assets/styles/variables";
+
+$breakpoint: 480px;
+$border: 2px solid $primary;
+
+.breadcrumbs {
+    padding: 10px;
+}
+.comment {
+    padding: 20px 0;
+    &__date {
+        padding: 10px;
+        border-bottom: $border;
+    }
+    &__body {
+        display: flex;
+    }
+}
+
+.comment-body {
+    &__user {
+        min-width: 150px;
+        border-right: $border;
+        border-bottom: $border;
+        padding: 10px;
+    }
+    &__message {
+        padding: 10px;
+        border-bottom: $border;
+    }
+}

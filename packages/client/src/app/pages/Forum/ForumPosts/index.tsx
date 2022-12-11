@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getPosts } from "../fake-data"
-import styles from './styles.module.scss'
+import styles from '../styles.module.scss'
+import { useNavigate, useParams } from "react-router-dom"
 
 interface lastComment {
     date: string;
@@ -24,13 +25,15 @@ function ForumPosts() {
         setPosts(gotPosts)
     }, []);
 
-    const onClickToRow = (forumId: number) => {
-        console.log(forumId)
+    const navigate = useNavigate();
+    const { forumId } = useParams();
+
+    const onClickToRow = (postId: number) => {
+        navigate(`/forum/${forumId}/${postId}/`)
     }
 
   return (
-    <div>
-      <h1>Темы</h1>
+    <div className={styles['layout-outer']}>
         <table className={styles.table}>
             <thead>
             <tr>
@@ -46,22 +49,22 @@ function ForumPosts() {
             </tr>
             </thead>
             <tbody>
-            {posts.map((forum) =>
-                <tr key={forum.id} onClick={() => onClickToRow(forum.id)}>
+            {posts.map((post) =>
+                <tr key={post.id} onClick={() => onClickToRow(post.id)}>
                     <td data-th="Раздел">
-                        {forum.title}
+                        {post.title}
                         <p>
-                            <span className={styles.cellDescription}>{forum.description}</span>
+                            <span className={styles.cellDescription}>{post.description}</span>
                         </p>
                     </td>
-                    <td data-th="Ответы">{forum.repliesCount}</td>
+                    <td data-th="Ответы">{post.repliesCount}</td>
                     <td data-th="Последний">
                         <div className={styles.cellTitle}>
-                            <span>{forum.lastComment.commentTitle}</span>
-                            <span>{forum.lastComment.userName}</span>
+                            <span>{post.lastComment.commentTitle}</span>
+                            <span>{post.lastComment.userName}</span>
                         </div>
                         <p className={styles.cellDescription}>
-                            {forum.lastComment.date}
+                            {post.lastComment.date}
                         </p>
                     </td>
                 </tr>

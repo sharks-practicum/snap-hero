@@ -33,8 +33,7 @@ function ForumPage() {
     }
 
   return (
-    <div>
-      <h1>Форум</h1>
+    <div className={styles['layout-outer']}>
         <table className={styles.table}>
             <thead>
             <tr>
