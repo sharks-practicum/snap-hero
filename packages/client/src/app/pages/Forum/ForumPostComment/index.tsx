@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { getPostComments, getPostInfo, getPosts } from "../fake-data"
+import { getPostComments, getPostInfo } from "../fake-data"
 import commonStyles from '../styles.module.scss'
 import styles from './styles.module.scss'
-import { useNavigate, useParams } from "react-router-dom"
 
 export interface PostComment {
     id: number;
