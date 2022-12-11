@@ -17,6 +17,7 @@ const App:React.FC = () => {
   return (
       <Layout>
         <div className={styles.app}>
+            Вот тут будет жить ваше приложение :)
           <Router/>
         </div>
       </Layout>
