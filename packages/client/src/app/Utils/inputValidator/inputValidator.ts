@@ -19,13 +19,11 @@ const inputValidator = ({type, value}:IInputValidatorArgs): string => {
 
 		break;
 	case "secondName":
-    if (~value.search(/[^A-Za-zА-Яа-я-]/) || value.search(/[A-ZА-Я]/) !== 0) {
-			error = "Некорректная фамилия";
-		}
-    break;
 	case "firstName":
 		if (~value.search(/[^A-Za-zА-Яа-я-]/) || value.search(/[A-ZА-Я]/) !== 0) {
-			error = "Некорректное имя";
+			error = type==="firstName"
+        ?"Некорректное имя"
+        :"Некорректная фамилия";
 		}
 		break;
 	case "email":
