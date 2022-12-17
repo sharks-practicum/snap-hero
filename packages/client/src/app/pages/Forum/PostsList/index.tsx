@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { getPosts } from "../fake-data"
 import styles from '../styles.module.scss'
 import { useNavigate, useParams } from "react-router-dom"
+import ForumRow from "../ForumRow"
+import PostRow from "./PostRow"
 
 interface lastComment {
     date: string;
@@ -29,8 +31,12 @@ function ForumPosts() {
     const { forumId } = useParams();
 
     const onClickToRow = (postId: number) => {
-        navigate(`/forum/${forumId}/${postId}/`)
+        navigate(`/forum/${forumId}/post/${postId}/`)
     }
+
+    const PostRows = posts.map((post) =>
+        <PostRow post={post} onClickToRow={onClickToRow} />
+    )
 
   return (
     <div className={styles['layout-outer']}>
@@ -49,26 +55,7 @@ function ForumPosts() {
             </tr>
             </thead>
             <tbody>
-            {posts.map((post) =>
-                <tr key={post.id} onClick={() => onClickToRow(post.id)}>
-                    <td data-th="Раздел">
-                        {post.title}
-                        <p>
-                            <span className={styles.cellDescription}>{post.description}</span>
-                        </p>
-                    </td>
-                    <td data-th="Ответы">{post.repliesCount}</td>
-                    <td data-th="Последний">
-                        <div className={styles.cellTitle}>
-                            <span>{post.lastComment.commentTitle}</span>
-                            <span>{post.lastComment.userName}</span>
-                        </div>
-                        <p className={styles.cellDescription}>
-                            {post.lastComment.date}
-                        </p>
-                    </td>
-                </tr>
-            )}
+                {PostRows}
             </tbody>
         </table>
     </div>

@@ -17,7 +17,7 @@ export interface PostInfo {
     forumTitle: string;
 }
 
-function ForumPostComment() {
+function ForumPost() {
     const [comments, setComments] = useState<PostComment[]>([]);
     const [postInfo, setPostInfo] = useState<PostInfo | null>(null);
 
@@ -40,7 +40,7 @@ function ForumPostComment() {
                     <div className={styles["comment__date"]}>
                         {comment.date}
                     </div>
-                    <div className={styles["comment__body"]}>
+                    <div className={styles["comment-body"]}>
                         <div className={styles["comment-body__user"]}>{comment.userName}</div>
                         <div className={styles["comment-body__message"]}>{comment.message}</div>
                     </div>
@@ -51,4 +51,4 @@ function ForumPostComment() {
   )
 }
 
-export default ForumPostComment
+export default ForumPost

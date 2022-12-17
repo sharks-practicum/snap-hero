@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getForums } from "./fake-data"
 import styles from './styles.module.scss'
 import { useNavigate } from "react-router-dom"
+import ForumRow from "./ForumRow"
 
 interface lastPost {
     date: string;
@@ -29,8 +30,12 @@ function ForumPage() {
     const navigate = useNavigate();
 
     const onClickToRow = (forumId: number) => {
-        navigate(`/forum/${forumId}`)
+        navigate(`/forum/${forumId}/posts`)
     }
+
+    const ForumRows = forums.map((forum) =>
+            <ForumRow forum={forum} onClickToRow={onClickToRow} />
+        )
 
   return (
     <div className={styles['layout-outer']}>
@@ -54,27 +59,7 @@ function ForumPage() {
             </tr>
             </thead>
             <tbody>
-            {forums.map((forum) =>
-                <tr key={forum.id} onClick={() => onClickToRow(forum.id)}>
-                    <td data-th="Раздел">
-                        {forum.title}
-                        <p>
-                            <span className={styles.cellDescription}>{forum.description}</span>
-                        </p>
-                    </td>
-                    <td data-th="Посты">{forum.postsCount}</td>
-                    <td data-th="Ответы">{forum.repliesCount}</td>
-                    <td data-th="Последний">
-                        <div className={styles.cellTitle}>
-                            <span>{forum.lastPost.postTitle}</span>
-                            <span>{forum.lastPost.userName}</span>
-                        </div>
-                        <p className={styles.cellDescription}>
-                            {forum.lastPost.date}
-                        </p>
-                    </td>
-                </tr>
-            )}
+                { ForumRows }
             </tbody>
         </table>
     </div>

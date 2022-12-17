@@ -1,6 +1,6 @@
 import { Forum } from "./index"
-import { Post } from "./ForumPosts"
-import { PostComment, PostInfo } from "./ForumPostComment"
+import { Post } from "./PostsList"
+import { PostComment, PostInfo } from "./ForumPost"
 
 const getRandomInt = () => {
   return Math.floor(Math.random() * 50);
