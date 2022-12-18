@@ -13,15 +13,12 @@ $border: 2px solid $primary;
         padding: 10px;
         border-bottom: $border;
     }
-    &__body {
-        display: flex;
-    }
 }
 
 .comment-body {
+    display: flex;
     &__user {
         min-width: 150px;
-        border-right: $border;
         border-bottom: $border;
         padding: 10px;
     }
