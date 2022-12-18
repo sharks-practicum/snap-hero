@@ -19,7 +19,6 @@ $border: 2px solid $primary;
     display: flex;
     &__user {
         min-width: 150px;
-        border-right: $border;
         border-bottom: $border;
         padding: 10px;
     }

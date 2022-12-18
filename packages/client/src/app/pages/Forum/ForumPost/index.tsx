@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getPostComments, getPostInfo } from "../fake-data"
 import commonStyles from '../styles.module.scss'
 import styles from './styles.module.scss'
+import Comment from "./PostComment"
 
 export interface PostComment {
     id: number;
@@ -29,23 +30,17 @@ function ForumPost() {
         setPostInfo(gotPostInfo)
     }, []);
 
+    const Comments = comments.map((comment) =>
+        <Comment comment={comment} key={comment.id}/>
+    )
+
   return (
     <div className={commonStyles['layout-outer']}>
         <div className={styles.breadcrumbs}>
             {postInfo?.forumTitle} / {postInfo?.title}
         </div>
         <div>
-            {comments.map((comment) =>
-                <div className={styles.comment}>
-                    <div className={styles["comment__date"]}>
-                        {comment.date}
-                    </div>
-                    <div className={styles["comment-body"]}>
-                        <div className={styles["comment-body__user"]}>{comment.userName}</div>
-                        <div className={styles["comment-body__message"]}>{comment.message}</div>
-                    </div>
-                </div>
-            )}
+            { Comments }
         </div>
     </div>
   )

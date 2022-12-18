@@ -6,7 +6,7 @@ interface PostCommentProps {
     comment: PostComment
 }
 
-function PostComment({ comment }: PostCommentProps) {
+function Comment({ comment }: PostCommentProps) {
   return (
       <div className={styles.comment}>
           <div className={styles["comment__date"]}>
@@ -20,4 +20,4 @@ function PostComment({ comment }: PostCommentProps) {
   )
 }
 
-export default PostComment
+export default Comment
