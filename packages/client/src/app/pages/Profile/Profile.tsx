@@ -80,10 +80,10 @@ const Profile = () => {
 
                         <div className={styles['profile-form-wrap__header_left']}>
                             <Button onClick={navigateToProfileHandler}
-                                    className={styles['profile-form__back-button']}>Профиль</Button>
+                                    variant="back" className={styles['profile-form__button-back']}>Профиль</Button>
                         </div>
 
-                        <Avatar edit avatar={profile.avatar}/>
+                        <Avatar edit avatar={profile.avatar} size="standard"/>
 
                         <div className={styles['profile-form-wrap__header_right']}></div>
                     </div>
@@ -148,8 +148,7 @@ const Profile = () => {
                                 </li>
                             </ul>
 
-                            <Button onClick={submitBntClickHandler}
-                                    className={styles['profile-form__button']}>Сохранить</Button>
+                            <Button onClick={submitBntClickHandler} variant='secondary' className={styles['profile-form__button-form']}>Сохранить</Button>
                         </form>
                     </div>
                 </div>

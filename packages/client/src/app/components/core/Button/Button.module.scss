@@ -1,5 +1,35 @@
+@import "src/assets/styles/variables";
+
 .button {
-    background-color: transparent;
+    background: none;
+    border: none;
     padding: 10px 20px;
-    border: 1px solid #333333;
+    color: $color-bg-white;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 25px;
+
+    &.primary {
+        background: $color-bg-blue;
+    }
+
+    &.secondary {
+        background: $color-bg-orange;
+    }
+
+    &.tertiary {
+        background-color: transparent;
+    }
+
+    &:disabled {
+        opacity: 0.7;
+    }
+
+    &.back {
+        background-image: url('../../../../assets/images/back_grey.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding: 5px 7px 5px 35px;
+    }
+
 }

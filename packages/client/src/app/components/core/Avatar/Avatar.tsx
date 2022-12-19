@@ -1,6 +1,6 @@
 import React, {CSSProperties, FC, HTMLAttributes, MouseEventHandler, PropsWithChildren, ReactNode} from 'react'
 import styles from './Avatar.module.scss'
-
+import classnames from 'classnames'
 
 interface Props extends HTMLAttributes<HTMLDivElement>{
     children?: ReactNode;
@@ -8,6 +8,12 @@ interface Props extends HTMLAttributes<HTMLDivElement>{
     avatar?: string;
     avatarShark?: boolean;
     size?: string;
+}
+
+export enum AvatarSizeEnum {
+    standard = 'standard',
+    small = 'small',
+    big = 'big',
 }
 
 const Avatar: FC<PropsWithChildren<Props>> = ({ className,edit, avatar,avatarShark, size, children }) => {
@@ -33,23 +39,31 @@ const Avatar: FC<PropsWithChildren<Props>> = ({ className,edit, avatar,avatarSha
         return avatarData;
     }
 
-    const avatarStyle={backgroundImage:`url(${avatar})`} as CSSProperties
+    const avatarBackgroundImage = {backgroundImage:`url(${avatar})`} as CSSProperties
+    const avatarSize = {
+                [styles['avatar_avatar-size_standard']]: size === AvatarSizeEnum.standard,
+                [styles['avatar_avatar-size_small']]: size === AvatarSizeEnum.small,
+                [styles['avatar_avatar-size_big']]: size === AvatarSizeEnum.big,
+            }
+    const classAvatarLabel = classnames(styles['avatar__input-label'], avatarSize)
+
+
+    const onClick = edit? AvatarClickHandler : undefined
+
+    const classAvatar = classnames(styles['avatar-default'], className, avatarSize, {
+                [styles['avatar_avatar-background_shark']]: avatarShark,
+            })
+
+    const avatarStyle = avatar ? avatarBackgroundImage : undefined
+
+    const label = edit? <label className={classAvatarLabel}> Поменять аватар </label> : ''
+
 
     return (
-        <div className={styles['avatar-container']} onClick={edit? AvatarClickHandler : undefined}>
+        <div className={styles['avatar-container']} onClick={onClick}>
             <div className={styles['avatar-wrap']}>
-                 <div className={`
-                          ${styles['avatar-default']} 
-                          ${avatarShark? styles['avatar-shark'] : ''} 
-                          ${size==='small'? styles['avatar-small'] : size==='big'? styles['avatar-big'] : styles['avatar-standard'] } 
-                          ${className || ''} 
-                          `}
-                      style={avatar ? avatarStyle : undefined}>
-
-                     {edit? <label className={`${styles['avatar__input-label']}  
-                                        ${size==='small'? styles['avatar-small'] : size==='big'? styles['avatar-big'] : styles['avatar-standard'] }`}>
-                            Поменять аватар</label> : ''
-                     }
+                 <div className={classAvatar}  style={avatarStyle}>
+                     {label}
                      {children}
                 </div>
             </div>

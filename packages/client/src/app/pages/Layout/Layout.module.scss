@@ -1,8 +1,6 @@
 @import "src/assets/styles/variables";
 
 .layout {
-  position: absolute;
-  z-index: -1;
   width: 100%;
   height: 100%;
   background: $layout-bg-blue;
@@ -11,8 +9,13 @@
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-}
 
-.layout_gradient {
-  background: -webkit-linear-gradient(left, #0882FF, #ee7e25, #0882FF);
+      &_layout-background {
+
+          &_gradient {
+            background: -webkit-linear-gradient(left, #0882FF, #ee7e25, #0882FF);
+          }
+
+      }
+
 }

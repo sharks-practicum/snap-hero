@@ -1,6 +1,7 @@
-import React,{ ReactNode, FC } from 'react';
+import React,{ ReactNode, FC } from 'react'
 import styles from './Layout.module.scss'
-import { HTMLAttributes } from "react";
+import { HTMLAttributes } from 'react'
+import classnames from 'classnames'
 
 interface Props  extends HTMLAttributes<HTMLDivElement>{
     children?: ReactNode;
@@ -8,8 +9,11 @@ interface Props  extends HTMLAttributes<HTMLDivElement>{
 }
 
 const Layout: FC<Props> = ({ className, gradient, children }) => {
+
+    const classLayot = classnames(styles.layout, className, {[styles['layout_layout-background_gradient']]: gradient})
+
     return (
-        <div className = {`${styles.layout} ${gradient? styles.layout_gradient : ''} ${className || ''}`} >
+        <div className = {classLayot} >
             {children}
         </div>
     )

@@ -102,36 +102,20 @@
         border-bottom: 1px solid $input-border-color;
       }
 
-      &__button {
-        font-size: 16px;
-        color: $text-color-white;
-        line-height: 1.2;
-        text-transform: uppercase;
+      &__button-back {
+        margin-top: 20px;
+      }
+
+      &__button-form {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px 50px;
         height: 30px;
         position: relative;
-        z-index: 1;
-        border-radius: 25px;
         overflow: hidden;
-        background: $color-bg-orange;
-        border: none;
         box-shadow: 0 0 8px $text-color-major;
-        cursor: pointer;
         margin: 40px auto;
       }
 
-      &__back-button {
-        border: none;
-        cursor: pointer;
-        background-color: transparent;
-        font-size: 18px;
-        background-image: url('../../../assets/images/back_grey.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        padding: 5px 7px 5px 35px;
-        margin-top: 20px;
-      }
 }
