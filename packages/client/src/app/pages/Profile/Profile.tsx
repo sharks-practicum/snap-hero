@@ -1,6 +1,6 @@
 import React, {FormEventHandler, MouseEventHandler, useEffect, useState} from 'react'
 import styles from './Profile.module.scss'
-import Button from '../../components/core/Button/Button'
+import Button, {ButtonVariant} from '../../components/core/Button/Button'
 
 import {useNavigate} from 'react-router-dom'
 import Avatar from "../../components/core/Avatar/Avatar";
@@ -80,7 +80,7 @@ const Profile = () => {
 
                         <div className={styles['profile-form-wrap__header_left']}>
                             <Button onClick={navigateToProfileHandler}
-                                    variant="back" className={styles['profile-form__button-back']}>Профиль</Button>
+                                    variant={ButtonVariant.back} className={styles['profile-form__button-back']}>Профиль</Button>
                         </div>
 
                         <Avatar edit avatar={profile.avatar} size="standard"/>
@@ -148,7 +148,7 @@ const Profile = () => {
                                 </li>
                             </ul>
 
-                            <Button onClick={submitBntClickHandler} variant='secondary' className={styles['profile-form__button-form']}>Сохранить</Button>
+                            <Button onClick={submitBntClickHandler} variant={ButtonVariant.secondary} className={styles['profile-form__button-form']}>Сохранить</Button>
                         </form>
                     </div>
                 </div>
