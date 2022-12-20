@@ -1,10 +1,6 @@
-import React, {ButtonHTMLAttributes, FC, PropsWithChildren} from 'react'
+import React, { FC, MouseEventHandler, PropsWithChildren} from 'react'
 import styles from './Button.module.scss'
 import classnames from 'classnames'
-
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-}
 
 export enum ButtonVariant {
   primary = 'primary',
@@ -13,7 +9,13 @@ export enum ButtonVariant {
   back = 'back',
 }
 
-const Button: FC<PropsWithChildren<Props>> = ({variant, className, children, ...props}) => {
+interface Props {
+  variant?: ButtonVariant;
+  className?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+}
+
+const Button: FC<PropsWithChildren<Props>> = ({variant, className, onClick, children, ...props}) => {
 
   const classButton = classnames(styles.button, className, {
     [styles.primary]: variant === ButtonVariant.primary,
@@ -23,7 +25,7 @@ const Button: FC<PropsWithChildren<Props>> = ({variant, className, children, ...
   })
 
   return (
-    <button className={classButton} {...props}>
+    <button className={classButton} onClick={onClick} {...props}>
       {children}
     </button>
   )

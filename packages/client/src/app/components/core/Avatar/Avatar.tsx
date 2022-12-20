@@ -19,7 +19,6 @@ export enum AvatarSizeEnum {
 const Avatar: FC<PropsWithChildren<Props>> = ({ className,edit, avatar,avatarShark, size, children }) => {
 
     const AvatarClickHandler:MouseEventHandler<HTMLElement>= (): FormData => {
-        console.log("Кнопка открытия аватара")
 
         const avatar = document.createElement('input')
         avatar.type = 'file'

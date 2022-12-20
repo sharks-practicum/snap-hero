@@ -10,12 +10,8 @@
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-      &_layout-background {
-
-          &_gradient {
+      &_background-gradient {
             background: -webkit-linear-gradient(left, #0882FF, #ee7e25, #0882FF);
-          }
-
       }
 
 }

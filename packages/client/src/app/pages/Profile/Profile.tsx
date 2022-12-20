@@ -5,6 +5,16 @@ import Button, {ButtonVariant} from '../../components/core/Button/Button'
 import {useNavigate} from 'react-router-dom'
 import Avatar from "../../components/core/Avatar/Avatar";
 
+export enum listProfile {
+    id = 'id',
+    name = 'Имя',
+    surname = 'Фамилия',
+    login = 'Логин',
+    email = 'Почта',
+    phone = 'Телефон',
+    avatar = 'Аватар',
+}
+
 interface ProfileData {
     id: number,
     name: string,
@@ -70,7 +80,7 @@ const Profile = () => {
         const { name, value } = event.target
         setProfile({...profile, [name]:value })
     }
-    console.log (profile)
+
 
     return (
         <div className={styles['profile-wrap']}>
@@ -92,60 +102,21 @@ const Profile = () => {
 
                             <ul className={styles['profile-form__ul-li-input-wrap']}>
 
-                                <li className={styles['profile-form__input-wrap']}>
+                                {Object.entries(profile).filter(([key]) => (key !== "id" && key !== "avatar")).map(([key, value]) => (
 
-                                    <div className={styles['profile-form__input-label-wrap']}>
-                                        <span className={styles['profile-form__input-label']}>Имя</span>
-                                        <input name="name" onChange={handleChange}
-                                               className={styles['profile-form__input']} value={profile.name}/>
-                                    </div>
-                                    <div className={styles['profile-form__input-border']}></div>
+                                    <li className={styles['profile-form__input-wrap']}>
 
-                                </li>
-                                <li className={styles['profile-form__input-wrap']}>
+                                        <div className={styles['profile-form__input-label-wrap']}>
+                                            <span className={styles['profile-form__input-label']}>{listProfile[key as keyof typeof listProfile]}</span>
+                                            <input name={key} onChange={handleChange}
+                                                   className={styles['profile-form__input']} value={value}/>
+                                        </div>
+                                        <div className={styles['profile-form__input-border']}></div>
 
-                                    <div className={styles['profile-form__input-label-wrap']}>
-                                        <span className={styles['profile-form__input-label']}>Фамилия</span>
-                                        <input name="surname" onChange={handleChange}
-                                               className={styles['profile-form__input']}
-                                               value={profile.surname}/>
-                                    </div>
-                                    <div className={styles['profile-form__input-border']}></div>
+                                    </li>
 
-                                </li>
-                                <li className={styles['profile-form__input-wrap']}>
+                                ))}
 
-                                    <div className={styles['profile-form__input-label-wrap']}>
-                                        <span className={styles['profile-form__input-label']}>Логин</span>
-                                        <input name="login" onChange={handleChange}
-                                               className={styles['profile-form__input']}
-                                               value={profile.login}/>
-                                    </div>
-                                    <div className={styles['profile-form__input-border']}></div>
-
-                                </li>
-                                <li className={styles['profile-form__input-wrap']}>
-
-                                    <div className={styles['profile-form__input-label-wrap']}>
-                                        <span className={styles['profile-form__input-label']}>Почта</span>
-                                        <input name="email" onChange={handleChange}
-                                               className={styles['profile-form__input']}
-                                               value={profile.email}/>
-                                    </div>
-                                    <div className={styles['profile-form__input-border']}></div>
-
-                                </li>
-                                <li className={styles['profile-form__input-wrap']}>
-
-                                    <div className={styles['profile-form__input-label-wrap']}>
-                                        <span className={styles['profile-form__input-label']}>Телефон</span>
-                                        <input name="phone" onChange={handleChange}
-                                               className={styles['profile-form__input']}
-                                               value={profile.phone}/>
-                                    </div>
-                                    <div className={styles['profile-form__input-border']}></div>
-
-                                </li>
                             </ul>
 
                             <Button onClick={submitBntClickHandler} variant={ButtonVariant.secondary} className={styles['profile-form__button-form']}>Сохранить</Button>

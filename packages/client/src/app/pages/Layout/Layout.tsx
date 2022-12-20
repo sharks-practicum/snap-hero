@@ -5,12 +5,12 @@ import classnames from 'classnames'
 
 interface Props  extends HTMLAttributes<HTMLDivElement>{
     children?: ReactNode;
-    gradient?: boolean;
+    withGradient?: boolean;
 }
 
-const Layout: FC<Props> = ({ className, gradient, children }) => {
+const Layout: FC<Props> = ({ className, withGradient, children }) => {
 
-    const classLayot = classnames(styles.layout, className, {[styles['layout_layout-background_gradient']]: gradient})
+    const classLayot = classnames(styles.layout, className, {[styles['layout_background-gradient']]: withGradient})
 
     return (
         <div className = {classLayot} >
