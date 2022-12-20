@@ -15,7 +15,7 @@ const App:React.FC = () => {
   }, [])
   return (
         <div className={styles.app}>
-            Вот тут будет жить ваше приложение :)
+          Вот тут будет жить ваше приложение :)
           <Router/>
         </div>
   )

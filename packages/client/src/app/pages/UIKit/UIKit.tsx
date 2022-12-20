@@ -13,6 +13,7 @@ const UIKit = () => {
   return (
 
     <div className="center">
+        <br/>
       <h1>Страничка UIKit</h1>
       Меню для переключения между страницами
         <br/>
