@@ -11,7 +11,6 @@ const UIKit = () => {
   }
 
   return (
-
     <div className="center">
       <h1>Страничка UIKit</h1>
       Меню для переключения между страницами

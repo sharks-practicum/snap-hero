@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styles from './App.module.scss'
 import Router from "./Router";
 
-const App:React.FC = () => {
+const App = () => {
   useEffect(() => {
     const fetchServerData = async () => {
       const url = `http://localhost:${__SERVER_PORT__}`
