@@ -25,7 +25,7 @@ function GameOver() {
                     </div>
                 </div>
             </div>
-    </Layout>
+        </Layout>
     );
 }
 
