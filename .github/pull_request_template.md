@@ -1,5 +1,5 @@
 ### Какую задачу решаем
-https://linear.app/kxnkxv/issue/SHRKS-<num>
+https://linear.app/kxnkxv-second/issue/SHRKS-<num>
 
 ### Описание задачи
 
