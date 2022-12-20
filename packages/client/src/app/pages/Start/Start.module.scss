@@ -1,4 +1,4 @@
-.start_container_wrap {
+.start-container-wrap {
   flex-flow: wrap;
   flex: 0 0 100%;
   display: flex;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.start_container {
+.start-container {
   flex-flow: wrap;
   flex: 0 0 100%;
   display: flex;
@@ -16,14 +16,14 @@
   align-items: center;
 }
 
-.wrap_for_start_icon_container {
+.wrap-for-start-icon-container {
   display: flex;
   margin: 20px;
   width: 450px;
   height: 450px;
 }
 
-.start_icon_container {
+.start-icon-container {
   flex:1;
   background-image: url('../../../assets/images/start.png');
   background-size: contain;
@@ -31,36 +31,20 @@
   background-position: center;
 }
 
-.wrap_for_start_button {
+.wrap-for-start-button {
   display: flex;
   flex-direction: column;
 }
 
-.start_button_play {
-  color: var(--text-color-white);
+.start-button-play {
   font-size: 39px;
   line-height: 1.2;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
   padding: 0 50px;
-  width: 100%;
   height: 50px;
-  background: var(--button-bg-blue);
-  position: relative;
-  z-index: 1;
-  border-radius: 25px;
-  overflow: hidden;
-  margin: 0 auto;
   box-shadow: 0 0 8px var(--text-color-major);
 }
 
-.start_button_exit {
+.start-button-exit {
   font-size: 20px;
-  line-height: 1.2;
-  text-transform: uppercase;
-  border: none;
-  background: none;
-  cursor: pointer;
   padding-top: 20px;
 }
