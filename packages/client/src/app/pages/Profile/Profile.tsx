@@ -1,21 +1,13 @@
-import React, {FormEventHandler, MouseEventHandler, useEffect, useState} from 'react'
+import React, {FormEventHandler, MouseEventHandler} from 'react'
 import styles from './Profile.module.scss'
 import Button, {ButtonVariant} from '../../components/core/Button/Button'
 
 import {useNavigate} from 'react-router-dom'
 import Avatar from "../../components/core/Avatar/Avatar";
+import {profile, ProfileDataList} from "./components/ProfileDataList/ProfileDataList";
 
-export enum listProfile {
-    id = 'id',
-    name = 'Имя',
-    surname = 'Фамилия',
-    login = 'Логин',
-    email = 'Почта',
-    phone = 'Телефон',
-    avatar = 'Аватар',
-}
 
-interface ProfileData {
+export interface ProfileData {
     id: number,
     name: string,
     surname: string,
@@ -43,16 +35,6 @@ export function getProfileData(): ProfileData {
     }
 }
 
-const emptyProfile = {
-    id: 0,
-    name: '',
-    surname: '',
-    login: '',
-    email: '',
-    phone: '',
-    avatar: '',
-}
-
 const Profile = () => {
 
     const submitHandler:FormEventHandler<HTMLFormElement> = (event): void => {
@@ -67,18 +49,6 @@ const Profile = () => {
     const navigate = useNavigate();
     const navigateToProfileHandler = () => {
         navigate('/profile')
-    }
-
-
-    const [profile, setProfile] = useState<ProfileData>(emptyProfile);
-    useEffect(() => {
-        const gotProfile = getProfileData()
-        setProfile(gotProfile)
-    }, []);
-
-    const handleChange = (event: { target: { name: string; value: string; }; }) => {
-        const { name, value } = event.target
-        setProfile({...profile, [name]:value })
     }
 
 
@@ -98,28 +68,12 @@ const Profile = () => {
                         <div className={styles['profile-form-wrap__header_right']}></div>
                     </div>
                     <div className={styles['profile-form-wrap__body']}>
+
                         <form action='' onSubmit={submitHandler} className={styles['profile-form']}>
 
-                            <ul className={styles['profile-form__ul-li-input-wrap']}>
-
-                                {Object.entries(profile).filter(([key]) => (key !== "id" && key !== "avatar")).map(([key, value]) => (
-
-                                    <li className={styles['profile-form__input-wrap']}>
-
-                                        <div className={styles['profile-form__input-label-wrap']}>
-                                            <span className={styles['profile-form__input-label']}>{listProfile[key as keyof typeof listProfile]}</span>
-                                            <input name={key} onChange={handleChange}
-                                                   className={styles['profile-form__input']} value={value}/>
-                                        </div>
-                                        <div className={styles['profile-form__input-border']}></div>
-
-                                    </li>
-
-                                ))}
-
-                            </ul>
-
+                            {ProfileDataList}
                             <Button onClick={submitBntClickHandler} variant={ButtonVariant.secondary} className={styles['profile-form__button-form']}>Сохранить</Button>
+
                         </form>
                     </div>
                 </div>
