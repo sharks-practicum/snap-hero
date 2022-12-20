@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes, PropsWithChildren } from 'react'
 import styles from './Field.module.scss'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string
+  label: string
 }
 
 const Field: React.FC<PropsWithChildren<Props>> = ({label, ...props}) => {
