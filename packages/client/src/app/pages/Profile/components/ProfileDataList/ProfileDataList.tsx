@@ -1,43 +1,20 @@
-import styles from "../../ProfileDataList.module.scss";
+import styles from "./ProfileDataList.module.scss";
 import React, {FC, useEffect, useState} from "react";
-import {getProfileData, ProfileData} from "../../Profile";
-
-export enum ProfileInputLabel {
-    id = 'id',
-    name = 'Имя',
-    surname = 'Фамилия',
-    login = 'Логин',
-    email = 'Почта',
-    phone = 'Телефон',
-    avatar = 'Аватар',
-}
-
-const emptyProfile = {
-    id: 0,
-    name: '',
-    surname: '',
-    login: '',
-    email: '',
-    phone: '',
-    avatar: '',
-}
-
-const handleChange = (event: { target: { name: string; value: string; }; }) => {
-    const { name, value } = event.target
-    setProfile({...profile, [name]:value })
-}
-
-export const [profile, setProfile] = useState<ProfileData>(emptyProfile);
-
+import {emptyProfile, getProfileData, ProfileData, ProfileInputLabel} from "../../Profile";
 
 export const ProfileDataList: FC = () => {
 
+    const handleChange = (event: { target: { name: string; value: string; }; }) => {
+        const { name, value } = event.target
+        setProfile({...profile, [name]:value })
+    }
+
+    const [profile, setProfile] = useState<ProfileData>(emptyProfile);
     useEffect(() => {
         const gotProfile = getProfileData()
         setProfile(gotProfile)
     }, []);
 
-    const { listProfile } = useAppSelector(state => state.profile)
 
     const listNodes =
             Object.entries(profile).filter(([key]) => (key !== "id" && key !== "avatar")).map(([key, value]) => (

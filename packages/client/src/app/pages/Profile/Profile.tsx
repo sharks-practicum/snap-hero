@@ -1,11 +1,31 @@
-import React, {FormEventHandler, MouseEventHandler} from 'react'
+import React, {FormEventHandler, MouseEventHandler, useEffect, useState} from 'react'
 import styles from './Profile.module.scss'
 import Button, {ButtonVariant} from '../../components/core/Button/Button'
 
 import {useNavigate} from 'react-router-dom'
 import Avatar from "../../components/core/Avatar/Avatar";
-import {profile, ProfileDataList} from "./components/ProfileDataList/ProfileDataList";
+import {ProfileDataList} from "./components/ProfileDataList/ProfileDataList";
+import Form from "../../components/core/Form/Form";
 
+export enum ProfileInputLabel {
+    id = 'id',
+    name = 'Имя',
+    surname = 'Фамилия',
+    login = 'Логин',
+    email = 'Почта',
+    phone = 'Телефон',
+    avatar = 'Аватар',
+}
+
+export const emptyProfile = {
+    id: 0,
+    name: '',
+    surname: '',
+    login: '',
+    email: '',
+    phone: '',
+    avatar: '',
+}
 
 export interface ProfileData {
     id: number,
@@ -17,7 +37,7 @@ export interface ProfileData {
     avatar: string,
 }
 
-const getRandomInt = () => {
+export const getRandomInt = () => {
     return Math.floor(Math.random() * 50);
 }
 
@@ -51,6 +71,12 @@ const Profile = () => {
         navigate('/profile')
     }
 
+    const [profile, setProfile] = useState<ProfileData>(emptyProfile);
+    useEffect(() => {
+        const gotProfile = getProfileData()
+        setProfile(gotProfile)
+    }, []);
+
 
     return (
         <div className={styles['profile-wrap']}>
@@ -69,12 +95,11 @@ const Profile = () => {
                     </div>
                     <div className={styles['profile-form-wrap__body']}>
 
-                        <form action='' onSubmit={submitHandler} className={styles['profile-form']}>
-
-                            {ProfileDataList}
+                        <Form onSubmit={submitHandler} className={styles['profile-form']}>
+                            <ProfileDataList/>
                             <Button onClick={submitBntClickHandler} variant={ButtonVariant.secondary} className={styles['profile-form__button-form']}>Сохранить</Button>
+                        </Form>
 
-                        </form>
                     </div>
                 </div>
             </div>
