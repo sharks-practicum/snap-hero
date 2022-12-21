@@ -1,7 +1,7 @@
-@import "src/assets/styles/variables";
+@import "src/assets/styles/colors";
 
 .app {
+  background: $primary;
   width: 100vw;
   height: 100vh;
-  background: $layout-bg-blue;
 }

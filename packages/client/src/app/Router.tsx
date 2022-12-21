@@ -1,17 +1,19 @@
 import {Route, Routes} from "react-router-dom";
 import UIKit from "./pages/UIKit/UIKit";
 import Login from "./pages/Login/Login";
+import Forum from "./pages/Forum";
+import PostsList from "./pages/Forum/PostsList";
+import ForumPost from "./pages/Forum/ForumPost";
 import React from "react";
 import GameOver from "./pages/GameOver/GameOver";
 
 const Router:React.FC =  () => (
     <Routes>
-        <Route path="/" element={<UIKit />}>
-            {/*Nested routes example */}
-            {/*<Route path="ticket" element={<TicketBoard />} />*/}
-            {/*<Route path="ticket/:ticketId" element={<Ticket />} />*/}
-        </Route>
-        <Route path='/login' element={<Login />}/>
+        <Route path="/" element={<UIKit />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/forums' element={<Forum />} />
+        <Route path="/forum/:forumId/posts" element={<PostsList />} />
+        <Route path="/forum/:forumId/post/:postId" element={<ForumPost />} />
         <Route path='/gameover' element={<GameOver />}/>
     </Routes>
 )
