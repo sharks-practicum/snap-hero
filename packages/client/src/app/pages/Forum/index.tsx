@@ -20,7 +20,7 @@ export interface Forum {
     postsCount: number;
     repliesCount: number;
 }
-function ForumPage() {
+const ForumPage = () => {
     const [forums, setForums] = useState<Forum[]>([]);
 
     useEffect(() => {

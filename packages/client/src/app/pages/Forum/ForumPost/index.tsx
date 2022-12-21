@@ -18,7 +18,7 @@ export interface PostInfo {
     forumTitle: string;
 }
 
-function ForumPost() {
+const ForumPost = () => {
     const [comments, setComments] = useState<PostComment[]>([]);
     const [postInfo, setPostInfo] = useState<PostInfo | null>(null);
 

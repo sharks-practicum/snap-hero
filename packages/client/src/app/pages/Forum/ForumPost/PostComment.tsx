@@ -6,7 +6,7 @@ interface PostCommentProps {
     comment: PostComment
 }
 
-function Comment({ comment }: PostCommentProps) {
+const Comment = ({ comment }: PostCommentProps) => {
   return (
       <div className={styles.comment}>
           <div className={styles["comment__date"]}>

@@ -19,7 +19,7 @@ export interface Post {
     lastComment: lastComment;
     repliesCount: number;
 }
-function ForumPosts() {
+const ForumPosts =  () => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
@@ -38,7 +38,8 @@ function ForumPosts() {
         <PostRow post={post} key={post.id} onClickToRow={onClickToRow} />
     )
 
-  return (
+
+    return (
     <div className={styles['layout-outer']}>
         <table className={styles.table}>
             <thead>
