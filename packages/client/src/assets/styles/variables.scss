@@ -1,3 +1,7 @@
+@import "./colors";
+
+$text-secondary: $white;
+
 :root {
   /* --{short property name}-{meaning/value} */
   --ff-primary: "Inter", "Arial", sans-serif;
@@ -24,5 +28,4 @@
 
   --input-border-color: var(--color-action);
   --label-color: var(--color-danger);
-
 }
