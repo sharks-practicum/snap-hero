@@ -7,7 +7,7 @@ interface IconProps {
     size?: number
 }
 
-function Icon({ name, color = 'inherit', size = 16 }: IconProps) {
+const Icon = ({ name, color = 'inherit', size = 16 }: IconProps) => {
     const injectStyles = (svg: Element) => {
         svg.setAttribute('style', `
             fill: ${color};

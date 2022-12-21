@@ -7,7 +7,7 @@ interface PostRowProps {
     onClickToRow: (arg0: number) => void
 }
 
-function PostRow({ post, onClickToRow }: PostRowProps) {
+const PostRow = ({ post, onClickToRow }: PostRowProps) => {
 
   return (
       <tr key={post.id} onClick={() => onClickToRow(post.id)}>

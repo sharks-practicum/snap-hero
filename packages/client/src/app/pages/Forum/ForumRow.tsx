@@ -7,7 +7,7 @@ interface ForumRowProps {
     onClickToRow: (arg0: number) => void
 }
 
-function ForumRow({ forum, onClickToRow }: ForumRowProps) {
+const ForumRow = ({ forum, onClickToRow }: ForumRowProps) => {
 
   return (
       <tr key={forum.id} onClick={() => onClickToRow(forum.id)}>
