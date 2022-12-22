@@ -13,9 +13,10 @@ interface Props {
   variant?: ButtonVariant;
   className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+  disabled?: boolean;
 }
 
-const Button: FC<PropsWithChildren<Props>> = ({variant, className, onClick, children, ...props}) => {
+const Button: FC<PropsWithChildren<Props>> = ({variant, className, onClick, disabled, children, ...props}) => {
 
   const classButton = classnames(styles.button, className, {
     [styles.primary]: variant === ButtonVariant.primary,
@@ -25,9 +26,9 @@ const Button: FC<PropsWithChildren<Props>> = ({variant, className, onClick, chil
   })
 
   return (
-    <button className={classButton} onClick={onClick} {...props}>
-      {children}
-    </button>
+      <button className={classButton} disabled={disabled} onClick={onClick} {...props}>
+        {children}
+      </button>
   )
 }
 
