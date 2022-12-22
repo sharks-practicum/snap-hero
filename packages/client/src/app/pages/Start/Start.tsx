@@ -13,18 +13,14 @@ function Start() {
 
     return (
         <Layout withGradient>
-            <div className={styles['start-container-wrap']}>
-                <div className={styles['start-container']}>
-                    <div className={styles['wrap-for-start-icon-container']}>
-                        <div className={styles['start-icon-container']}></div>
-                    </div>
-
-                    <div className={styles['wrap-for-start-button']}>
-                        <Button onClick={navigateToStartHandler} variant={ButtonVariant.primary} className={styles['start-button-play']}>Старт</Button>
-                        <Button onClick={navigateToStartHandler} variant={ButtonVariant.tertiary} className={styles['start-button-exit']}>Выход</Button>
+            <main className={styles['content-wrap']}>
+                <div className={styles['content']}>
+                    <div className={styles['content-buttons']}>
+                        <Button onClick={navigateToStartHandler} variant={ButtonVariant.primary} className={styles['content-btn-restart']}>Старт</Button>
+                        <Button onClick={navigateToStartHandler} variant={ButtonVariant.tertiary} className={styles['content-btn-exit']}>Выход</Button>
                     </div>
                 </div>
-            </div>
+            </main>
         </Layout>
     );
 }
