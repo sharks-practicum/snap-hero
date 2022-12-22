@@ -12,16 +12,11 @@ function GameOver() {
 
     return (
         <Layout withGradient>
-            <div className={styles['game-over-container-wrap']}>
-                <div className={styles['game-over-container']}>
-                    <div className={styles['wrap-for-game-over-icon-container']}>
-                        <div className={styles['game-over-cat-icon-container']}></div>
-                        {/*<div className={styles['game-over-icon-container']}></div>*/}
-                    </div>
-
-                    <div className={styles['wrap-for-game-over-button']}>
-                        <Button onClick={navigateToStartHandler} variant={ButtonVariant.primary} className={styles['game-over-button-start']}>НАЧАТЬ ЗАНОВО?</Button>
-                            <Button onClick={navigateToStartHandler} variant={ButtonVariant.tertiary} className={styles['game-over-button-exit']}>Выход</Button>
+            <div className={styles['content-wrap']}>
+                <div className={styles['content']}>
+                    <div className={styles['content-buttons']}>
+                        <Button onClick={navigateToStartHandler} variant={ButtonVariant.primary} className={styles['content-btn-restart']}>НАЧАТЬ ЗАНОВО?</Button>
+                            <Button onClick={navigateToStartHandler} variant={ButtonVariant.tertiary} className={styles['content-btn-exit']}>Выход</Button>
                     </div>
                 </div>
             </div>
