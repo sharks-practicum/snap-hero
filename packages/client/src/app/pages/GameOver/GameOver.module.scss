@@ -1,13 +1,5 @@
 @import "src/assets/styles/variables";
 
-.content-wrap {
-  flex-flow: wrap;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .content {
   flex-flow: wrap;
   flex: 0 0 100%;
@@ -19,6 +11,14 @@
   background-repeat: no-repeat;
   background-position: 50% 10%;
   background-size: 450px;
+
+      &-wrap {
+        flex-flow: wrap;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
       &-buttons {
         margin: 60vh 50px 10vh;

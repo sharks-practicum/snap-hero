@@ -12,14 +12,14 @@ function GameOver() {
 
     return (
         <Layout withGradient>
-            <div className={styles['content-wrap']}>
+            <main className={styles['content-wrap']}>
                 <div className={styles['content']}>
                     <div className={styles['content-buttons']}>
                         <Button onClick={navigateToStartHandler} variant={ButtonVariant.primary} className={styles['content-btn-restart']}>НАЧАТЬ ЗАНОВО?</Button>
                             <Button onClick={navigateToStartHandler} variant={ButtonVariant.tertiary} className={styles['content-btn-exit']}>Выход</Button>
                     </div>
                 </div>
-            </div>
+            </main>
         </Layout>
     );
 }
