@@ -1,0 +1,64 @@
+@import "src/assets/styles/colors";
+@import "src/assets/styles/variables";
+
+$breakpoint: 480px;
+
+.layout-outer {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: $white;
+    border-radius: 4px;
+}
+.table {
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    tbody {
+        tr {
+            &:hover {
+                background: $secondary;
+                color: $text-secondary;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+    th {
+        display: none;
+    }
+    td {
+        display: block;
+        &:before {
+            content: attr(data-th)": ";
+            font-weight: bold;
+            width: 90px;
+            display: inline-block;
+            @media (min-width: $breakpoint) {
+                display: none;
+            }
+        }
+    }
+    th, td {
+        margin: 10px 5px;
+        text-align: left;
+        @media (min-width: $breakpoint) {
+            display: table-cell;
+            padding: 20px 40px;
+        }
+    }
+    th, td:before {
+        background-color: $secondary;
+        color: $text-secondary;
+    }
+}
+
+.cell-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cell-description {
+    font-size: 12px;
+}
