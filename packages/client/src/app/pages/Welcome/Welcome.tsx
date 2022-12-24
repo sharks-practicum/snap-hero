@@ -13,29 +13,26 @@ function Welcome() {
 
     return (
         <Layout withGradient>
-            <div className={styles['welcome-container']}>
-                <div className={styles['wrap-for-cat-container']}>
-                    <div className={styles['cat-container']}></div>
-                </div>
-                <div className={styles['words-container']}>
-                    <div className={styles['words-container__span-header']}>
-                        <span className={styles['words-container__span-header__content']}>Ритмическая игра</span>
-                        <span className={styles['words-container__span-header__content_small']}>
+            <div className={styles['content-wrap']}>
+                <div className={styles['cat-content']}></div>
+                <div className={styles['content']}>
+                    <div className={styles['content-header']}>
+                        <span className={styles['content-header_big']}>Ритмическая игра</span>
+                        <span className={styles['content-header_small']}>
                             Яндекс Практикум 20 когорта Sharks Team
                         </span>
                         <Avatar avatarShark size={AvatarSizeEnum.standard}/>
                     </div>
 
-                    <div className={styles['words-container__span-body']}>
-                        <span className={styles['words-container__span-body__content']}>      Игроки сопоставляют ноты,
-                        которые прокручиваются на экране до цветных кнопок ладов на контроллере,
+                    <div className={styles['content-body']}>
+                        <span className={styles['content-text']}>      Игроки сопоставляют ноты, которые прокручиваются на экране до цветных кнопок ладов на контроллере,
                         играя на контроллере в такт музыке, чтобы набирать очки и поддерживать интерес виртуальной аудитории.</span>
-                        <span className={styles['words-container__span-body__content']}>      Игра имитирует  особенности игры на настоящей гитаре, в том числе использование
+                        <span className={styles['content-text']}>      Игра имитирует  особенности игры на настоящей гитаре, в том числе использование
                         быстрых ударов молотком и пулл-оффов, а также использование ударной планки для изменения высоты
                         звука нот. </span>
                     </div>
-                    <div className={styles['wrap-for-welcome-button']}>
-                        <Button onClick={navigateToLoginHandler} variant={ButtonVariant.primary} className={styles['welcome-button']}>Вперёд</Button>
+                    <div className={styles['content-buttons']}>
+                        <Button onClick={navigateToLoginHandler} variant={ButtonVariant.primary} className={styles['content-btn-welcome']}>Вперёд</Button>
                     </div>
                 </div>
             </div>
