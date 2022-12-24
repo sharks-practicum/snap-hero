@@ -14,7 +14,7 @@ export enum ProfileInputLabel {
     login = 'Логин',
     email = 'Почта',
     phone = 'Телефон',
-    avatar = 'Аватар',
+    avatar = 'avatar',
 }
 
 export const emptyProfile = {
@@ -77,27 +77,48 @@ const Profile = () => {
         setProfile(gotProfile)
     }, []);
 
+    const handleChange = (event: { target: { name: string; value: string; }; }) => {
+        const { name, value } = event.target
+        setProfile({...profile, [name]:value })
+    }
+
+    const arr: JSX.Element[] = [];
+
+    const listNodes =
+        Object.entries(profile).reduce(function(filtered, [key, value]) {
+            const filter: string[] = [ProfileInputLabel.id , ProfileInputLabel.avatar]
+            if(!filter.includes(key)) {
+                const label = ProfileInputLabel[key as keyof typeof ProfileInputLabel]
+                const filteredValue = <ProfileDataList name={label} value={value} onChange={handleChange}/>
+                filtered.push(filteredValue);
+            }
+            return filtered
+        }, arr)
 
     return (
         <div className={styles['profile-wrap']}>
             <div className={styles.profile}>
                 <div className={styles['profile-form-wrap']}>
-                    <div className={styles['profile-form-wrap__header']}>
+                    <div className={styles['form__header']}>
 
-                        <div className={styles['profile-form-wrap__header_left']}>
+                        <div className={styles['form__header_left']}>
                             <Button onClick={navigateToProfileHandler}
-                                    variant={ButtonVariant.back} className={styles['profile-form__button-back']}>Профиль</Button>
+                                    variant={ButtonVariant.back} className={styles['form__button-back']}>Профиль</Button>
                         </div>
 
-                        <Avatar edit avatar={profile.avatar} size="standard"/>
+                        <Avatar edit avatar={profile.avatar}/>
 
-                        <div className={styles['profile-form-wrap__header_right']}></div>
+                        <div className={styles['form__header_right']}></div>
                     </div>
-                    <div className={styles['profile-form-wrap__body']}>
+                    <div className={styles['form__body']}>
 
-                        <Form onSubmit={submitHandler} className={styles['profile-form']}>
-                            <ProfileDataList/>
-                            <Button onClick={submitBntClickHandler} variant={ButtonVariant.secondary} className={styles['profile-form__button-form']}>Сохранить</Button>
+                        <Form onSubmit={submitHandler} className={styles['form']}>
+
+                            <ul className={styles['form__list-wrap']}>
+                                {listNodes.length ? listNodes : <p className={styles['form__list_empty']}>Список пуст</p>}
+                            </ul>
+
+                            <Button onClick={submitBntClickHandler} variant={ButtonVariant.secondary} className={styles['form__button-save']}>Сохранить</Button>
                         </Form>
 
                     </div>

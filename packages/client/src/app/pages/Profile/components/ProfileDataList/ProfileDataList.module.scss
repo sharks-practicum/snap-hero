@@ -2,14 +2,6 @@
 
 .form {
 
-}
-
-.profile-form {
-  &__ul-li-input-wrap {
-    width: 100%;
-    padding-left: 150px;
-  }
-
   &__input-wrap {
     width: 100%;
     padding-bottom: 15px;
@@ -24,6 +16,7 @@
     display: flex;
     flex-direction: row;
     align-items: end;
+
   }
 
   &__input-label {
@@ -32,6 +25,7 @@
     line-height: 1.5;
     padding-left: 7px;
     white-space: nowrap;
+    flex: 1;
   }
 
   &__input {

@@ -1,40 +1,25 @@
 import styles from "./ProfileDataList.module.scss";
-import React, {FC, useEffect, useState} from "react";
-import {emptyProfile, getProfileData, ProfileData, ProfileInputLabel} from "../../Profile";
+import React, {FC} from "react";
+import {Input} from "../../../../components/core";
 
-export const ProfileDataList: FC = () => {
+export interface Props {
+    name: string,
+    value: string,
+    onChange: (event: { target: { name: string; value: string; }; }) => void
+}
 
-    const handleChange = (event: { target: { name: string; value: string; }; }) => {
-        const { name, value } = event.target
-        setProfile({...profile, [name]:value })
-    }
-
-    const [profile, setProfile] = useState<ProfileData>(emptyProfile);
-    useEffect(() => {
-        const gotProfile = getProfileData()
-        setProfile(gotProfile)
-    }, []);
-
-
-    const listNodes =
-            Object.entries(profile).filter(([key]) => (key !== "id" && key !== "avatar")).map(([key, value]) => (
-
-                <li className={styles['profile-form__input-wrap']}>
-
-                    <div className={styles['profile-form__input-label-wrap']}>
-                        <span className={styles['profile-form__input-label']}>{ProfileInputLabel[key as keyof typeof ProfileInputLabel]}</span>
-                        <input name={key} onChange={handleChange}
-                               className={styles['profile-form__input']} value={value}/>
-                    </div>
-                    <div className={styles['profile-form__input-border']}></div>
-
-                </li>
-            ))
-
+export const ProfileDataList: FC<Props> = ({ name, onChange, value }) => {
 
     return (
-        <ul className={styles['profile-form__ul-li-input-wrap']}>
-            {listNodes.length ? listNodes : <p className={styles.empty}>Список пуст</p>}
-        </ul>
+        <li className={styles['form__input-wrap']}>
+
+            <div className={styles['form__input-label-wrap']}>
+                <span className={styles['form__input-label']}>{name}</span>
+                <Input name={name} onChange={onChange} className={styles['form__input']}
+                       value={value} showType="primary"/>
+            </div>
+            <div className={styles['form__input-border']}></div>
+
+        </li>
     )
 }

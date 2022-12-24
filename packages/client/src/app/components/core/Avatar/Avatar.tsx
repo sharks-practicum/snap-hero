@@ -1,13 +1,20 @@
-import React, {CSSProperties, FC, HTMLAttributes, MouseEventHandler, PropsWithChildren, ReactNode} from 'react'
+import React, {
+    ChangeEvent,
+    FC,
+    HTMLAttributes,
+    PropsWithChildren,
+    ReactNode, useState
+} from 'react'
 import styles from './Avatar.module.scss'
 import classnames from 'classnames'
+
 
 interface Props extends HTMLAttributes<HTMLDivElement>{
     children?: ReactNode;
     edit?: boolean;
     avatar?: string;
     avatarShark?: boolean;
-    size?: string;
+    size?: AvatarSizeEnum;
 }
 
 export enum AvatarSizeEnum {
@@ -16,29 +23,19 @@ export enum AvatarSizeEnum {
     big = 'big',
 }
 
-const Avatar: FC<PropsWithChildren<Props>> = ({ className,edit, avatar,avatarShark, size, children }) => {
+export const emptyAvatar = {
+    imageSrc: '',
+}
 
-    const AvatarClickHandler:MouseEventHandler<HTMLElement>= (): FormData => {
+export interface AvatarData {
+    imageSrc: string | undefined,
+}
 
-        const avatar = document.createElement('input')
-        avatar.type = 'file'
-        const avatarData = new FormData()
-        avatar.click()
+const Avatar: FC<PropsWithChildren<Props>> = ({ className,edit, avatar,avatarShark, size= AvatarSizeEnum.standard, children }) => {
 
-        avatar.onchange = async () => {
-            const file = avatar.files?.[0] || null
-            if (file) {
-                avatarData.append('avatar', file)
-                const frame = URL.createObjectURL(file);
-                const avatarClass = document.getElementsByClassName(styles['avatar-default']) as HTMLCollectionOf<HTMLElement>;
-                avatarClass[0].style.backgroundImage = `url(${frame})`
-                avatarClass[0].style.backgroundSize = 'cover'
-            }
-        };
-        return avatarData;
-    }
+    const [avatarPreload, setAvatar] = useState<AvatarData>(emptyAvatar);
 
-    const avatarBackgroundImage = {backgroundImage:`url(${avatar})`} as CSSProperties
+    const avatarBackgroundImage = avatarPreload.imageSrc ? {backgroundImage:`url(${avatarPreload.imageSrc})`} : {backgroundImage:`url(${avatar})`}
     const avatarSize = {
                 [styles['avatar_avatar-size_standard']]: size === AvatarSizeEnum.standard,
                 [styles['avatar_avatar-size_small']]: size === AvatarSizeEnum.small,
@@ -46,23 +43,36 @@ const Avatar: FC<PropsWithChildren<Props>> = ({ className,edit, avatar,avatarSha
             }
     const classAvatarLabel = classnames(styles['avatar__input-label'], avatarSize)
 
-
-    const onClick = edit? AvatarClickHandler : undefined
-
     const classAvatar = classnames(styles['avatar-default'], className, avatarSize, {
                 [styles['avatar_avatar-background_shark']]: avatarShark,
             })
 
     const avatarStyle = avatar ? avatarBackgroundImage : undefined
 
-    const label = edit? <label className={classAvatarLabel}> Поменять аватар </label> : ''
+    function onFileLoad(e: ChangeEvent<HTMLInputElement>) {
+
+        e.preventDefault();
+        if(!e.target.value) return;
+        const file = e.target.files?.[0]
+        if (file) {
+            setAvatar({
+                imageSrc: URL.createObjectURL(file)
+            })
+        }
+
+    }
 
 
     return (
-        <div className={styles['avatar-container']} onClick={onClick}>
+        <div className={styles['avatar-container']} >
             <div className={styles['avatar-wrap']}>
-                 <div className={classAvatar}  style={avatarStyle}>
-                     {label}
+                 <div className={classAvatar} style={avatarStyle} >
+                     {edit &&
+                         <>
+                            <label htmlFor="file" className={classAvatarLabel}>Поменять аватар</label>
+                            <input className={styles['avatar__input-image']} type="file" id="file" name="file" onChange={(e) => onFileLoad(e)}/>
+                         </>
+                     }
                      {children}
                 </div>
             </div>
