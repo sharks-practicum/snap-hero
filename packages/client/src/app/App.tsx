@@ -13,12 +13,12 @@ const App:React.FC = () => {
 
     fetchServerData()
   }, [])
-    return (
+  return (
         <div className={styles.app}>
-            Вот тут будет жить ваше приложение :)
-            <Router/>
+          Вот тут будет жить ваше приложение :)
+          <Router/>
         </div>
-    )
+  )
 }
 
 export default App

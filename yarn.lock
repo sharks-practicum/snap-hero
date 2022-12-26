@@ -6603,7 +6603,7 @@ react-router@6.4.3:
   dependencies:
     "@remix-run/router" "1.0.3"
 
-react-svg@^15.1.15:
+react-svg@15.1.15:
   version "15.1.15"
   resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-15.1.15.tgz#3f6093209519d679a169f79ba664db2f6a4c48fd"
   integrity sha512-EDyWQbdO0oqK8oY2Shc6144iBLv7t2ATMqqxDpgKvt9ozqcMBFYL9uO1vmrUTfXwX0EWNIQNeO44HbCOdwONzw==
