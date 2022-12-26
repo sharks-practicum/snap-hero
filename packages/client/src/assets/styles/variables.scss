@@ -21,11 +21,23 @@ $text-secondary: $white;
 
   --text-color-major: #1e1e1e;
   --text-color-minor: #999;
+
   --input-bg-light: #efefef;
   --input-bg-light-on-focus: #efefef;
   --border-color-light: #efefef;
   --border-color-light-on-focus: #efefef;
 
-  --input-border-color: var(--color-action);
   --label-color: var(--color-danger);
 }
+
+$color-bg-blue: #0882FF;
+$color-bg-white: #FFFFFF;
+$color-bg-orange: #FF5931;
+
+$text-color-major: #1e1e1e;
+$text-color-white: #efefef;
+
+$layout-bg-blue: $color-bg-blue;
+$button-bg-blue: $color-bg-blue;
+
+$input-border-color: $color-bg-blue;

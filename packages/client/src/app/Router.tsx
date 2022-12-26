@@ -5,14 +5,17 @@ import Forum from "./pages/Forum";
 import PostsList from "./pages/Forum/PostsList";
 import ForumPost from "./pages/Forum/ForumPost";
 import React from "react";
+import Start from "./pages/Start/Start";
+
 
 const Router:React.FC =  () => (
     <Routes>
-        <Route path="/" element={<UIKit />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/forums' element={<Forum />} />
-        <Route path="/forum/:forumId/posts" element={<PostsList />} />
-        <Route path="/forum/:forumId/post/:postId" element={<ForumPost />} />
+            <Route path="/" element={<UIKit />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/forums' element={<Forum />} />
+            <Route path="/forum/:forumId/posts" element={<PostsList />} />
+            <Route path="/forum/:forumId/post/:postId" element={<ForumPost />} />
+            <Route path='/start' element={<Start />}/>
     </Routes>
 )
 
