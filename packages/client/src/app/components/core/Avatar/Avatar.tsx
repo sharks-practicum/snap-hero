@@ -1,7 +1,6 @@
 import React, {
     ChangeEvent,
     FC,
-    HTMLAttributes,
     PropsWithChildren,
     ReactNode, useState
 } from 'react'
@@ -9,8 +8,9 @@ import styles from './Avatar.module.scss'
 import classnames from 'classnames'
 
 
-interface Props extends HTMLAttributes<HTMLDivElement>{
+interface Props {
     children?: ReactNode;
+    className?: string;
     edit?: boolean;
     avatar?: string;
     avatarShark?: boolean;
