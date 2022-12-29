@@ -1,0 +1,79 @@
+@import "src/assets/styles/variables";
+
+.profile-wrap {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile {
+  width: 100%;
+  min-height: 98vh;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  display: flex;
+}
+
+.profile-form-wrap {
+  width: 60vw;
+  background: $color-bg-white;
+  border-radius: 15px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+      &__header {
+        padding: 20px;
+        border-radius: 15px;
+        background-image: linear-gradient(180deg, $color-bg-orange  50%, $color-bg-white 50%);
+        display: flex;
+        flex-direction: row;
+
+            &_left {
+              flex: 1;
+            }
+
+            &_right {
+              flex: 1;
+            }
+
+      }
+
+      &__list-wrap {
+        width: 100%;
+        padding-left: 150px;
+      }
+
+      &__list_empty {
+        text-align: center;
+        padding-right: 150px;
+      }
+
+      &__button-back {
+        margin-top: 20px;
+      }
+
+      &__button-save {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        height: 30px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 8px $text-color-major;
+        margin: 40px auto;
+      }
+
+}
