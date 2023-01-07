@@ -8,6 +8,7 @@ import React from "react";
 import Start from "./pages/Start/Start";
 import GameOver from "./pages/GameOver/GameOver";
 import Profile from "./pages/Profile/Profile";
+import Welcome from "./pages/Welcome/Welcome";
 
 const Router:React.FC =  () => (
     <Routes>
@@ -19,6 +20,7 @@ const Router:React.FC =  () => (
     <Route path='/start' element={<Start />}/>
     <Route path='/gameover' element={<GameOver />}/>
     <Route path='/profile' element={<Profile />}/>
+    <Route path='/welcome' element={<Welcome />}/>
     </Routes>
 )
 

@@ -1,0 +1,81 @@
+@import "src/assets/styles/variables";
+
+.content-wrap {
+  width: 100%;
+  height: 100%;
+  flex-flow: wrap;
+  flex: 0 0 100%;
+  display: flex;
+}
+
+.cat-content {
+  display: flex;
+  width: 36%;
+  margin: 40px;
+  flex: 1;
+  background-image: url('../../../assets/images/cat.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.content {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 40px;
+
+      &-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 25px 5px;
+        flex-direction: column;
+
+            &_big {
+              font-size: 59px;
+              color:  $color-bg-white;
+              text-shadow: 0 0 8px $text-color-major;
+              line-height: 1.2;
+              text-align: center;
+              padding-bottom: 10px;
+
+            }
+
+            &_small {
+              font-size: 20px;
+              line-height: 1.2;
+              text-align: center;
+            }
+
+      }
+
+      &-body {
+        width: 100%;
+        padding-left: 25px;
+        padding-right: 25px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: break-word;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      &-text {
+        display: block;
+        font-size: 20px;
+        line-height: 1.2;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+
+      &-btn-welcome {
+        font-size: 20px;
+        padding: 0 50px;
+        height: 50px;
+        box-shadow: 0 0 8px $text-color-major;
+      }
+
+}
+
