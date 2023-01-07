@@ -1,0 +1,53 @@
+@import "src/assets/styles/variables";
+
+.form {
+
+  &__input-wrap {
+    width: 100%;
+    padding-bottom: 15px;
+    display: flex;
+    height: 100%;
+    flex: 0 0 100%;
+    flex-flow: wrap column;
+    padding-inline-end: 150px;
+  }
+
+  &__input-label-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+
+  }
+
+  &__input-label {
+    font-size: 16px;
+    color: #A5A5A5;
+    line-height: 1.5;
+    padding-left: 7px;
+    white-space: nowrap;
+    flex: 1;
+  }
+
+  &__input {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.2;
+    width: 100%;
+    background: transparent;
+    text-align: right;
+    border: none;
+    padding: 0 7px 0 43px;
+    height: 30px;
+
+    &:focus {
+      width: 100%;
+      outline: none;
+    }
+
+  }
+
+  &__input-border {
+    width: 100%;
+    border-bottom: 1px solid $input-border-color;
+  }
+}

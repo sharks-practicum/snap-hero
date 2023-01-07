@@ -7,6 +7,7 @@ import ForumPost from "./pages/Forum/ForumPost";
 import React from "react";
 import Start from "./pages/Start/Start";
 import GameOver from "./pages/GameOver/GameOver";
+import Profile from "./pages/Profile/Profile";
 import Welcome from "./pages/Welcome/Welcome";
 
 const Router:React.FC =  () => (
@@ -18,6 +19,7 @@ const Router:React.FC =  () => (
     <Route path="/forum/:forumId/post/:postId" element={<ForumPost />} />
     <Route path='/start' element={<Start />}/>
     <Route path='/gameover' element={<GameOver />}/>
+    <Route path='/profile' element={<Profile />}/>
     <Route path='/welcome' element={<Welcome />}/>
     </Routes>
 )
